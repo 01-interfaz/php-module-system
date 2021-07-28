@@ -3,10 +3,8 @@
 
 namespace Interfaz\Module;
 
-use App\Core\Module\Permission\Permission;
-use App\Core\Module\Permission\Role;
-use App\Core\UI\Menu\MenuNav;
 use Exception;
+use Interfaz\MenuSystem\Menu;
 
 class Modules
 {
@@ -94,19 +92,19 @@ class Modules
         return $roles;
     }
 
-    //public function processMenu(string $name, MenuNav $menu)
-    //{
-    //    foreach ($this->modules as $module) {
-    //        try {
-    //            if ($module instanceof IModuleMenu) $module->processMenu($name, $menu);
-    //            foreach ($module->getModules() as $submodule)
-    //                if ($submodule instanceof IModuleMenu) $submodule->processMenu($name, $menu);
-    //
-    //        } catch (Exception $e) {
-    //            throw new Exception("Error al procesar el menu en el modulo " . get_class($module) . " |=====> " . $e->getMessage());
-    //        }
-    //    }
-    //}
+    public function processMenu(string $name, Menu $menu)
+    {
+        foreach ($this->modules as $module) {
+            try {
+                if ($module instanceof IModuleMenu) $module->processMenu($name, $menu);
+                foreach ($module->getModules() as $submodule)
+                    if ($submodule instanceof IModuleMenu) $submodule->processMenu($name, $menu);
+    
+            } catch (Exception $e) {
+                throw new Exception("Error al procesar el menu en el modulo " . get_class($module) . " |=====> " . $e->getMessage());
+            }
+        }
+    }
 
     public function processRoutes(string $type)
     {
