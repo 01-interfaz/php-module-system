@@ -61,9 +61,7 @@ class Modules
         foreach ($this->modules as $module) {
             try {
                 if ($module instanceof IModulePermissions) $permissions = array_merge($permissions, $module->getPermissions());
-                foreach ($module->getModules() as $submodule)
-                    if ($submodule instanceof IModulePermissions) $permissions = array_merge($permissions, $submodule->getPermissions());
-
+                $permissions = array_merge($permissions, $module->getModules()->processPermissions());
             } catch (Exception $e) {
                 throw new Exception("Error al procesar permisos del modulo " . get_class($module) . " |=====> " . $e->getMessage());
             }
@@ -83,8 +81,7 @@ class Modules
         foreach ($this->modules as $module) {
             try {
                 if ($module instanceof IModuleRoles) $roles = array_merge($roles, $module->getRoles());
-                foreach ($module->getModules() as $submodule)
-                    if ($submodule instanceof IModuleRoles) $roles = array_merge($roles, $submodule->getRoles());
+                $roles = array_merge($roles, $module->getModules()->processRoles());
             } catch (Exception $e) {
                 throw new Exception("Error al procesar roles del modulo " . get_class($module) . " |=====> " . $e->getMessage());
             }
@@ -97,9 +94,7 @@ class Modules
         foreach ($this->modules as $module) {
             try {
                 if ($module instanceof IModuleMenu) $module->processMenu($name, $menu);
-                foreach ($module->getModules() as $submodule)
-                    if ($submodule instanceof IModuleMenu) $submodule->processMenu($name, $menu);
-    
+                $module->getModules()->processMenu($name, $menu);
             } catch (Exception $e) {
                 throw new Exception("Error al procesar el menu en el modulo " . get_class($module) . " |=====> " . $e->getMessage());
             }
@@ -112,11 +107,7 @@ class Modules
             try {
                 if ($type === "web" && $module instanceof IModuleHttpRoutes) $module->getHttpRoutes();
                 if ($type === "api" && $module instanceof IModuleApiRoutes) $module->getApiRoutes();
-
-                foreach ($module->getModules() as $submodule) {
-                    if ($type === "web" && $submodule instanceof IModuleHttpRoutes) $submodule->getHttpRoutes();
-                    if ($type === "api" && $submodule instanceof IModuleApiRoutes) $submodule->getApiRoutes();
-                }
+                $module->getModules()->processRoutes($type);
             } catch (Exception $e) {
                 throw new Exception("Error al procesar las rutas del modulo " . get_class($module) . " |=====> " . $e->getMessage());
             }
