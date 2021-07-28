@@ -3,7 +3,7 @@
     "description": "Sistema de modulos para PHP",
     "type": "library",
     "license": "MIT",
-    "version": "0.0.4r2",
+    "version": "0.0.4",
     "authors": [
         {
             "name": "Franco Rosatto",
@@ -17,5 +17,6 @@
     },
     "require": {
         "php": ">=7.3.0"
-    }
+    },
+    "minimum-stability": "stable"
 }
