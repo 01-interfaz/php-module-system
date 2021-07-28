@@ -1,5 +1,5 @@
 {
-    "name": "interfaz/php-module-system",
+    "name": "01-interfaz/php-module-system",
     "description": "Sistema de modulos para PHP",
     "type": "library",
     "authors": [
@@ -10,7 +10,7 @@
     ],
     "autoload":{
         "psr-4": {
-            "Interfaz": "src/"
+            "Interfaz\\": "src/"
         }
     },
     "require": {}
