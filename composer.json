@@ -2,6 +2,7 @@
     "name": "01-interfaz/php-module-system",
     "description": "Sistema de modulos para PHP",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Franco Rosatto",
@@ -13,5 +14,7 @@
             "Interfaz\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "php": ">=7.3.0"
+    }
 }
