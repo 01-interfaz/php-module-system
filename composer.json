@@ -1,0 +1,17 @@
+{
+    "name": "interfaz/php-module-system",
+    "description": "Sistema de modulos para PHP",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Franco Rosatto",
+            "email": "francoe12012@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4": {
+            "Interfaz": "src/"
+        }
+    },
+    "require": {}
+}
