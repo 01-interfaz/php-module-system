@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Interfaz\Module;
+namespace Interfaz\ModuleSystem;
 
 
 class Module

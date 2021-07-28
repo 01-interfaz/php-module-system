@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Interfaz\Module;
+namespace Interfaz\ModuleSystem;
 
 use Interfaz\MenuSystem\Menu;
 

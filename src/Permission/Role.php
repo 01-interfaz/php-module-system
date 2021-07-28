@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Interfaz\Module\Permission;
+namespace Interfaz\ModuleSystem\Permission;
 
 
 class Role
