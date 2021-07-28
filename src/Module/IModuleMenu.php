@@ -3,10 +3,9 @@
 
 namespace App\Core\Module;
 
-
-use App\Core\UI\Menu\MenuNav;
+use Interfaz\MenuSystem\Menu;
 
 interface IModuleMenu
 {
-    function processMenu(string $name, MenuNav $menu): void;
+    function processMenu(string $name, Menu $menu): void;
 }

@@ -16,7 +16,8 @@
         }
     },
     "require": {
-        "php": ">=7.3.0"
+        "php": ">=7.3.0",
+        "interfaz/php-menu-system": "dev-master"
     },
     "minimum-stability": "dev",
     "prefer-stable": true
