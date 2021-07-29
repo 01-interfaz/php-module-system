@@ -42,9 +42,10 @@ class Modules
         if (key_exists($name, $this->modules)) throw new Exception("El modulo $module_class ya se encuentra registrado.");
         $this->modules[$name] = $module;
 
-        //if ($module instanceof IModuleBoot) $module->boot();
+        if ($module instanceof IModuleBoot) $module->boot();
     }
 
+    /*
     public function boot()
     {
         foreach ($this->modules as $module) {
@@ -56,6 +57,7 @@ class Modules
             }
         }
     }
+    */
 
     public function isRegistred(string $module_class): bool
     {
